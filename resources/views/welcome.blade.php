@@ -91,7 +91,7 @@
                     <a href="">{{ $user->created_at->toAtomString() }}</a><br>
                     <a href="">{{ $user->created_at->toIso8601ZuluString() }}</a><br>
                     <a href="">{{ $user->created_at->diffForHumans() }}</a><br>
-                    <a href="">{{ $user->created_at->formatLocalized('%A %d %B %Y') }}</a><br>
+                    <a href="">Hola {{ $user->created_at->formatLocalized('%A %d %B %Y') }}</a><br> {{-- Aqui --}}
 
                     <a href="">{{ $user->updated_at->format('l jS \\of F Y h:i:s A') }}</a><br>
 

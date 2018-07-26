@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,8 +12,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('fecha', function(){
+	setlocale(LC_TIME, 'Spanish');
+	$dt = Carbon::create(2016, 01, 06, 00, 00, 00);
+	Carbon::setUtf8(false);
+	echo $dt->formatLocalized('%A %d %B %Y');          // mi�rcoles 06 enero 2016
+	Carbon::setUtf8(true);
+	echo $dt->formatLocalized('%A %d %B %Y');          // miércoles 06 enero 2016
+	Carbon::setUtf8(false);
+	setlocale(LC_TIME, '');
+});
 
 Route::get('/', function () {
+	setlocale(LC_TIME, 'Spanish');
+	Carbon::setUtf8(true);
 	$user = App\User::first();
     return view('welcome',compact('user'));
 });
